@@ -1,15 +1,12 @@
-import logo from '../src/img/logo-bestbike.png'
 import './App.css';
-import '../src/components/navbar/NavBar.js'
+import NavBar from './components/navbar/NavBar';
+import ItemListContainer from './components/itemlistcontainer/ItemListContainer';
 
 function App() {
-  return (
+  return (    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} width="620" className="App-logo" alt="logo" />
-
-
-      </header>
+      <NavBar />
+      <ItemListContainer message={'Pronto Catalogo de Productos'} />
     </div>
   );
 }

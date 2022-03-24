@@ -16,7 +16,8 @@
 #carrito-boton:focus {
   outline: none;
 }
-  
+
+/*contador*/
 #carrito-contador{
   font-size: 20px;
   padding: 10px;
