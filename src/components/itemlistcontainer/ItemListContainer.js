@@ -3,17 +3,21 @@ import ItemCount from '../itemcount/ItemCount.js'
 
 const ItemListContainer = (props) => {
 
-    const stockOnAdd = (quantity) => {
-
+    const stockOnAdd = (stockOnAdd) => {
+      console.log("PRODUCTO AGREGADO")
+      alert(`fueron agregados ${stockOnAdd} productos`)
     }
 
 
   return(
-    <>
+    <div className='container'>
         <h1 className='ItemListContainer text-center'>{props.message}</h1>
-        <ItemCount stockInitial={0} stockCurrent={10} onAdd={stockOnAdd}  />
-    </>
+        <div className='row row-cols-2 g-5 mt-2'>
+          <ItemCount stockInitial={1} stockAvailable={10} onAdd={stockOnAdd}  />
+          <ItemCount stockInitial={0} stockAvailable={0} onAdd={stockOnAdd}  />
+        </div>
       
+    </div>     
       
   )
 };
