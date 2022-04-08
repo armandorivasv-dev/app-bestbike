@@ -1,6 +1,7 @@
 import './itemdetail.css'
+import { Link } from 'react-router-dom';
 
-const ItemDetail = ({name, img, cat, price, desc}) => {
+const ItemDetail = ({id, name, img, cat, price, desc}) => {
   return(
       <div className='row'>
           <div className="col">
@@ -18,6 +19,7 @@ const ItemDetail = ({name, img, cat, price, desc}) => {
               <p>Devolución gratis, Tienes 30 días desde que lo recibes.</p>
               <button className='btn btn-dark mt-5'>COMPRAR </button>
           </div>
+          <Link className='btn btn-dark' to={`/`}>IR A CATEGORIAS</Link>
       </div>
     )
 }
