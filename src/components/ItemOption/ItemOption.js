@@ -1,5 +1,4 @@
 const Select = ( { options = [], onSelect }) =>{
-  console.log(options)
 
   return(
     <select onChange={(e) => onSelect(e.target.value)}>

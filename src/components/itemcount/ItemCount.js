@@ -6,29 +6,6 @@ const ItemCount = ( { onConfirm, stock, stockInitial = 0 } ) => {
 
   console.log(stock)
 
-  // useEffect(() => {
-  //   console.log('se monto el componente')
-  //   let isActive = true
-
-  //   setTimeout(() => {
-  //     if(isActive){
-  //       setCount(16)
-  //     }
-  //   },500)
-
-  //   return (() => {
-  //     isActive = false
-  //     console.log('se desmonto el componente')
-
-  //   })
-
-  // })
-
-  // useEffect(() => {
-  //   console.log('cambio el count')
-  // }, [count])
-
-
   const incrementItem = () => {
     stock > count ? setCount(count + 1) : alert('CANTIDAD SUPERA EL STOCK DISPONIBLE');    
   }
@@ -49,8 +26,6 @@ const ItemCount = ( { onConfirm, stock, stockInitial = 0 } ) => {
           <button onClick={incrementItem} className='btn btn-dark m-1'>+</button>
         </div>
         <div className='text-center'>
-        {/* <button onClick={() => onAdd(count)} className='btn btn-dark m-1'>AGREGAR AL CARRITO</button> */}
-
           <button onClick={addItem} className='btn btn-dark m-1'>AGREGAR AL CARRITO</button>
         </div>
     </div>

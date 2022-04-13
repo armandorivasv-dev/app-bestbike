@@ -7,29 +7,24 @@ import './ItemDetailContainer.css';
 
 
 const ItemDetailContainer = () => {
-    const [product, setProducts] = useState([])
+  const [product, setProducts] = useState([])
 
-    const { productId } = useParams()
+  const { productId } = useParams()
 
 
-    useEffect(() => {
-        getItem(productId).then(prods => {
-            setProducts(prods)
-        }).catch(error => {
-            console.log(error)
-        })
-    }, [productId])
+  useEffect(() => {
+    getItem(productId).then(prods => {
+      setProducts(prods)
+    }).catch(error => {
+      console.log(error)
+    })
+  }, [productId])
 
-   
-
-    return(
-        <div className='container ItemDetailContainer'>
-          <ItemDetail  {...product} />
-        </div>
-
-       
-
-    )
+  return(
+    <div className='container ItemDetailContainer'>
+      <ItemDetail  {...product} />
+    </div>
+  )
 }
 
 export default ItemDetailContainer;
