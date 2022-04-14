@@ -6,4 +6,5 @@ const Select = ( { options = [], onSelect }) =>{
     </select>
   )
 }
+
 export default Select;
