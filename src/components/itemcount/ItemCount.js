@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const ItemCount = ( { onConfirm, stock, stockInitial = 0 } ) => {
 
   const [count, setCount] = useState(stockInitial);
 
-  console.log(stock)
 
   const incrementItem = () => {
     stock > count ? setCount(count + 1) : alert('CANTIDAD SUPERA EL STOCK DISPONIBLE');    
