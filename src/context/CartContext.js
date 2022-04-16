@@ -12,7 +12,7 @@ export const CartContextProvider = ({ children }) => { //3. crear una funcion qu
 
   const addItem = (productsToAdd) => {
     let repeatItem = cart.find(item => item.id === productsToAdd.id)
-    repeatItem ? alert('Producto ya fue agreado al carrito') : setCart([...cart, productsToAdd])      
+    repeatItem ? alert('Producto ya fue agreado al carrito, Si desea modificarlo puede hacerlo en el Carrito de Compras') : setCart([...cart, productsToAdd])      
   }
 
   const getQuantity = () => {
