@@ -16,8 +16,6 @@ const ItemDetail = ({id, name, img, cat, price, desc, stock}) => {
   const colors = [ {id: 0, name: 'Negro'}, {id: 1, name: 'Blanco'}, {id: 2, name: 'Azul'} ];
   
   const handleSize = (id) => {
-    // USAR UN IF
-    console.log(id)
     setSize(id)  
   }
 
@@ -52,9 +50,9 @@ return(
       <ItemOption options={colors} onSelect={handleColor} />
     </div>
 
-   <ItemCount onConfirm={handleAdd} stock={stock}/>  
+   {/* <ItemCount onConfirm={handleAdd} stock={stock}/>   */}
      
-       {/* {isInCart(id) ? <Link className='btn btn-dark m-1' to='/cart'> IR AL CARRITO </Link> : <ItemCount onConfirm={handleAdd} stock={stock}/>  } */}
+       {isInCart(id) ? <Link className='btn btn-dark m-1' to='/cart'> IR AL CARRITO </Link> : <ItemCount onConfirm={handleAdd} stock={stock}/>  }
     <Link className='btn btn-dark' to={`/`}>IR A CATEGORIAS</Link>
   </div>
   )
