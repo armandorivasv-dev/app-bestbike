@@ -23,6 +23,15 @@ export const CartContextProvider = ({ children }) => { //3. crear una funcion qu
     return countQuantity
   }
 
+const getTotal = () => {
+  let countTotal = 0
+  cart.forEach(prod => {
+    countTotal += prod.quantity*prod.price
+  })
+  return countTotal
+  
+}
+
   const isInCart = (id) => {
     return cart.some(prod => prod.id === id)
   }
@@ -32,7 +41,7 @@ export const CartContextProvider = ({ children }) => { //3. crear una funcion qu
   }
 
   const removeItem = (id) => {
-    const productsToCart = cart.find(item => item.id !== id)
+    const productsToCart = cart.filter(item => item.id !== id)
     setCart(productsToCart)
   }
 
@@ -44,7 +53,8 @@ export const CartContextProvider = ({ children }) => { //3. crear una funcion qu
       getQuantity,
       isInCart,
       clearCart,
-      removeItem
+      removeItem,
+      getTotal
     }}> 
       { children } 
     </CartContext.Provider>

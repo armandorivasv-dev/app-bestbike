@@ -14,7 +14,7 @@
   color: grey;
 } 
   
-#carrito-boton:focus {
+.carrito-boton:focus {
   outline: none;
 }
 

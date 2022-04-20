@@ -52,7 +52,7 @@ return(
 
    {/* <ItemCount onConfirm={handleAdd} stock={stock}/>   */}
      
-       {isInCart(id) ? <Link className='btn btn-dark m-1' to='/cart'> IR AL CARRITO </Link> : <ItemCount onConfirm={handleAdd} stock={stock}/>  }
+      {isInCart(id) ? <Link className='btn btn-dark m-1' to='/cart'> IR AL CARRITO </Link> : <ItemCount onConfirm={handleAdd} stock={stock}/>  }
     <Link className='btn btn-dark' to={`/`}>IR A CATEGORIAS</Link>
   </div>
   )

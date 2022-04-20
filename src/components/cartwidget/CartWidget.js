@@ -9,7 +9,7 @@ const CartWidget = () => {
 
   return(
     <div className='row justify-content-center align-items-center'>
-      <Link className='fas fa-shopping-cart carrito-boton' to='/cart'> <spam className='carrito-contador'>{ getQuantity() } </spam></Link>
+      <Link className='fas fa-shopping-cart carrito-boton' to='/cart'> <i className='carrito-contador'>{ getQuantity() } </i></Link>
     </div>
   )
 };
