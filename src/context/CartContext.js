@@ -6,13 +6,15 @@ export const CartContextProvider = ({ children }) => { //3. crear una funcion qu
     
     const [ cart, setCart ] = useState([]) //4. se crea un estado para agregar productos al carrito
 
-  console.log("carrito:", cart)
-
-
-
   const addItem = (productsToAdd) => {
     const repeatItem = cart.find(item => item.id === productsToAdd.id)
-    repeatItem ? alert('Producto ya fue agreado al carrito, Si desea modificarlo puede hacerlo en el Carrito de Compras') : setCart([...cart, productsToAdd])  
+    if(!repeatItem){
+      setCart([...cart, productsToAdd]) 
+    } else {
+      const newCart = cart.filter(item => item.id !== repeatItem.id)
+      repeatItem.quantity += productsToAdd.quantity
+      setCart([...newCart, repeatItem])
+    }
   }
 
   const getQuantity = () => {
