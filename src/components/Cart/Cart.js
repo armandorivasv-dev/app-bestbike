@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 const Cart = () => {
   const { cart, removeItem, clearCart, getTotal } = useContext(CartContext)
 
+  
+
   if (cart.length=== 0){
     return(
       <div className='container'>
@@ -25,7 +27,6 @@ const Cart = () => {
         {cart.map(prod => 
         <div className='container' key={prod.id}>
             <div className='row' >
-            <div className='col'><img src={prod.img} alt={prod.name} /></div>
             <div className='col'>{prod.name}</div>
             <div className='col'>{prod.quantity}</div>
             <div className='col'>{prod.price} </div>
