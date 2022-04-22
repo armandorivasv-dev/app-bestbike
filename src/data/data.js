@@ -4,9 +4,9 @@ const products = [
   {id: '3', name: 'Bicicleta Marlin', cat: 'crosscountry', desc: 'Bicicleta modelo marlin para crosscountry', price: 700, stock: 10, img: 'https://bestbike-mountainbike.000webhostapp.com/multimedia/images/bestbike-crosscountry-marlin.webp'},
   {id: '4', name: 'Bicicleta Fuelex', cat: 'trail', desc: 'Bicicleta modelo fuelex para trail', price: 1000, stock: 10, img: 'https://bestbike-mountainbike.000webhostapp.com/multimedia/images/bestbike-trail-fuelex.jpg'},
   {id: '5', name: 'Bicicleta Remedy', cat: 'trail', desc: 'Bicicleta modelo remedy para trail', price: 1100, stock: 10, img: 'https://bestbike-mountainbike.000webhostapp.com/multimedia/images/bestbike-trail-remedy.webp'},
-  {id: '6', name: 'Bicicleta Slash', cat: 'trail', desc: 'Bicicleta modelo slash para trail', price: 1200, stock: 10, img: 'https://bestbike-mountainbike.000webhostapp.com/multimedia/images/bestbike-trail-slash.webp'},
+  {id: '6', name: 'Bicicleta Slash', cat: 'trail', desc: 'Bicicleta modelo Slash para trail', price: 1200, stock: 10, img: 'https://bestbike-mountainbike.000webhostapp.com/multimedia/images/bestbike-trail-slash.webp'},
   {id: '7', name: 'Bicicleta Roscoe', cat: 'rigida', desc: 'Bicicleta modelo roscoe rigida', price: 900, stock: 10, img: 'https://bestbike-mountainbike.000webhostapp.com/multimedia/images/bestbike-rigida-roscoe.jpg'},
-  {id: '8', name: 'Bicicleta Remedy', cat: 'rigida', desc: 'Bicicleta modelo remedy rigida', price: 950, stock: 10, img: 'https://bestbike-mountainbike.000webhostapp.com/multimedia/images/bestbike-rigida-xcaiber.webp'},
+  {id: '8', name: 'Bicicleta XCaliber', cat: 'rigida', desc: 'Bicicleta modelo XCaliber rigida', price: 950, stock: 10, img: 'https://bestbike-mountainbike.000webhostapp.com/multimedia/images/bestbike-rigida-xcaiber.webp'},
   {id: '9', name: 'Bicicleta Procaliber', cat: 'rigida', desc: 'Bicicleta modelo procaliber rigida', price: 800, stock: 10, img: 'https://bestbike-mountainbike.000webhostapp.com/multimedia/images/bestbike-rigida-procaliber.webp'},    
 ]
 
