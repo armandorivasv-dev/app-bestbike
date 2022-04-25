@@ -12,7 +12,7 @@ export const CartContextProvider = ({ children }) => { //3. crear una funcion qu
       setCart([...cart, productsToAdd]) 
     } else {
       const newCart = cart.filter(item => item.id !== repeatItem.id)
-      repeatItem.quantity += productsToAdd.quantity
+      repeatItem.quantity = productsToAdd.quantity
       setCart([...newCart, repeatItem])
     }
   }
