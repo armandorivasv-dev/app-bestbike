@@ -48,11 +48,7 @@ useEffect(() => {
         <CartWidget />
     </div>
     </nav> 
-
-
     
-
-
   </div>
 
   )

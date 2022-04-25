@@ -5,7 +5,6 @@ import { useState, useContext } from 'react';
 import ItemOption from '../ItemOption/ItemOption';
 import CartContext from '../../context/CartContext';
 
-
 const ItemDetail = ({id, name, img, cat, price, desc, stock}) => {
   const { addItem, isInCart } = useContext(CartContext)
 
@@ -22,7 +21,6 @@ const ItemDetail = ({id, name, img, cat, price, desc, stock}) => {
   const handleColor = (id) => {
     setColor(id)
   }
-
 
   const handleAdd = (count) => {
     const productObj = {id, name, price, quantity: count, color, size}
@@ -49,8 +47,7 @@ return(
       <p>SELECCIONAR COLOR:</p>
       <ItemOption options={colors} onSelect={handleColor} />
     </div>
-    <ItemCount onConfirm={handleAdd} stock={stock}/>
-      {/* {isInCart(id) ? <Link className='btn btn-dark m-1' to='/cart'> IR AL CARRITO </Link> : <ItemCount onConfirm={handleAdd} stock={stock}/>  } */}
+      {isInCart(id) ? <Link className='btn btn-dark m-1' to='/cart'> IR AL CARRITO </Link> : <ItemCount onConfirm={handleAdd} stock={stock}/>  }
     <Link className='btn btn-dark' to={`/`}>IR A CATEGORIAS</Link>
   </div>
   )

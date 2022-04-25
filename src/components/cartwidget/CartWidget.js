@@ -8,7 +8,6 @@ const CartWidget = () => {
 
   const { getQuantity, cart } = useContext(CartContext)
 
-
   if (cart.length=== 0){
     return(
       <div></div>
