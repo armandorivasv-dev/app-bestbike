@@ -2,9 +2,10 @@ import './cart.css'
 import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
 import { Link } from 'react-router-dom';
+import CartItem from '../CartItem/CartItem';
 
 const Cart = () => {
-  const { cart, removeItem, clearCart, getTotal } = useContext(CartContext)  
+  const { cart, clearCart, getTotal } = useContext(CartContext)  
 
   if (cart.length=== 0){
     return(
@@ -22,29 +23,23 @@ const Cart = () => {
   return(
     <>
         <h1 className='cartContainer'>CARRITO DE COMPRAS</h1>
-        {cart.map(prod => 
-        <div className='container' key={prod.id}>
-            <div className='row' >
-            <div className='col'>{prod.name}</div>
-            <div className='col'>{prod.quantity}</div>
-            <div className='col'>{prod.price} </div>
-            <div className='col'>{prod.price * prod.quantity} </div>            
-            <button type="button" className='btn-close' aria-label='Close' onClick={() => removeItem(prod.id)}></button>
-          </div>
+        <div className='container'>  
+          <h4 className='col'>PRODUCTOS SELECCIONADOS:</h4>
         </div>
-        )}
+        { cart.map(prod => <CartItem key={prod.id} {...prod}/>)}
+
 
         <div className='container'>
           <div className='row justify-content-end mt-2'>
             <h4 className='col-4'>TOTAL CARRITO: ${getTotal(cart)} </h4>         
-        </div>
+          </div>
           
           <div className='d-grid gap-2 col-8 mx-auto mt-4'>
             <button className='btn btn-dark' onClick={() => clearCart()}>VACIAR CARRITO</button>
           </div>  
 
           <div className='d-grid gap-2 col-8 mx-auto mt-2'>
-            <button className='btn btn-dark'>FINALIZAR COMPRA</button>
+            <Link className='btn btn-dark' to={`/checkout`}>CONFIRMAR PEDIDO</Link>
           </div>  
 
         </div>     
