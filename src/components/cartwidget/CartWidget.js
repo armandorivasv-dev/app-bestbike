@@ -11,9 +11,9 @@ const CartWidget = () => {
   if (cart.length=== 0){
     return(
       <div></div>
-    )
-    
+    )    
   }
+  
   return(
     <div className='row justify-content-center align-items-center'>
       <Link className='fas fa-shopping-cart carrito-boton' to='/cart'> <i className='carrito-contador'> { getQuantity() } </i></Link>

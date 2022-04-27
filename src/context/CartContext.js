@@ -1,4 +1,6 @@
 import { createContext, useState } from "react"; //1. importo createContext
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CartContext = createContext() //2. creo el contexto sin valor por defecto
 
@@ -40,9 +42,28 @@ const getTotal = () => {
 
   const clearCart = () => {
     setCart([])
+
+    toast.warn('Carrito vacio', {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
   }
 
   const removeItem = (id) => {
+    toast.warn('Producto eliminado del Carrito', {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
     const productsToCart = cart.filter(item => item.id !== id)
     setCart(productsToCart)
   }

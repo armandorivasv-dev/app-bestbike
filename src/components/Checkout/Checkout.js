@@ -1,12 +1,14 @@
 import './checkout.css'
 import { useContext, useState } from 'react';
 import CartContext from '../../context/CartContext';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //import Form from '../Form/Form'
 import { firestoreDb } from '../../services/firebase';
 import { collection, documentId, getDocs, query, where, addDoc, writeBatch } from 'firebase/firestore';
 import CartItem from '../CartItem/CartItem';
 import BuyerForm from '../FormBuyer/FormBuyer';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Checkout = () => {
@@ -18,9 +20,19 @@ const Checkout = () => {
     phone: ''
   });
 
-  const { cart, getTotal, getQuantity } = useContext(CartContext) 
+  const { cart, getTotal } = useContext(CartContext) 
 
   const createOrder = () => {
+    toast.success(`Hola, ${buyer.name} su pedido fue generado`, {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+
     setLoading(true)
 
     const objOrder = {
@@ -59,7 +71,7 @@ const Checkout = () => {
         }
       }).then(({ id }) => {
         batchBd.commit()
-        alert(`DETALLE DEL PEDIDO:  \n Comprador: ${buyer.name}  \n Numero de pedido: ${id}`)
+        console.log(`Comprador: ${buyer.name}  \n Numero de pedido: ${id}`)
       }).catch(error => {
         console.log(error)
       }).finally(() => {
@@ -104,11 +116,16 @@ const Checkout = () => {
             </div>
           </div>
 
-          <div className='d-grid gap-2 col-8 mx-auto mt-2'>
-            <button type='submit' onClick={() => createOrder()} className="btn btn-dark">GENERAR PEDIDO</button>
-          </div>  
+ 
 
         </form>
+
+        <div className='d-grid gap-2 col-8 mx-auto mt-2'>
+            <button type='submit button' onClick={() => createOrder()} className="btn btn-dark">GENERAR PEDIDO</button>
+            <Link className='btn btn-dark mt-2' to={`/`}>CONTINUAR COMPRANDO</Link>
+          </div> 
+
+          
       </div>   
     </>
   )

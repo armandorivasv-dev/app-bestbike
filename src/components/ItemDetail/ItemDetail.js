@@ -4,6 +4,8 @@ import ItemCount from '../itemcount/ItemCount';
 import { useState, useContext } from 'react';
 import ItemOption from '../ItemOption/ItemOption';
 import CartContext from '../../context/CartContext';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ItemDetail = ({id, name, img, cat, price, desc, stock}) => {
   const { addItem, isInCart } = useContext(CartContext)
@@ -25,6 +27,16 @@ const ItemDetail = ({id, name, img, cat, price, desc, stock}) => {
   const handleAdd = (count) => {
     const productObj = {id, name, price, quantity: count, color, size}
     addItem(productObj)
+
+    toast.success(`Fue agregado (${count}) ${name} al carrito`, {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
   }
 
 return(
@@ -47,8 +59,9 @@ return(
       <p>SELECCIONAR COLOR:</p>
       <ItemOption options={colors} onSelect={handleColor} />
     </div>
-      {isInCart(id) ? <Link className='btn btn-dark m-1' to='/cart'> IR AL CARRITO </Link> : <ItemCount onConfirm={handleAdd} stock={stock}/>  }
-    <Link className='btn btn-dark' to={`/`}>IR A CATEGORIAS</Link>
+    
+    {isInCart(id) ? <Link className='btn btn-dark' to='/cart'> IR AL CARRITO </Link> : <ItemCount onConfirm={handleAdd} stock={stock}/>  }
+    <Link className='btn btn-dark mt-2' to={`/`}>CONTINUAR COMPRANDO</Link>
   </div>
   )
 }
