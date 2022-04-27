@@ -26,7 +26,6 @@ function App() {
         </BrowserRouter>
       </CartContextProvider>
       <ToastContainer />
-
       
   </div>
   );

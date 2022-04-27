@@ -3,7 +3,6 @@ import CartContext from "../../context/CartContext";
 import { Link } from 'react-router-dom';
 import '../navbar/NavBar.css';
 
-
 const CartWidget = () => {
 
   const { getQuantity, cart } = useContext(CartContext)
@@ -13,7 +12,7 @@ const CartWidget = () => {
       <div></div>
     )    
   }
-  
+
   return(
     <div className='row justify-content-center align-items-center'>
       <Link className='fas fa-shopping-cart carrito-boton' to='/cart'> <i className='carrito-contador'> { getQuantity() } </i></Link>

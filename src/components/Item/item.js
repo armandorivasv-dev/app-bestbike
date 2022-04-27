@@ -11,8 +11,7 @@ const Item = ({id, name, img, price}) => {
             <Link className='btn btn-dark' to={`/detail/${id}`}>VER DETALLE</Link>
           </div>
       </div>
-    </div>
-   
+    </div>   
   )
 }
 export default Item;

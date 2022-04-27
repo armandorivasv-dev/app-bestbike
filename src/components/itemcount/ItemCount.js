@@ -6,7 +6,6 @@ const ItemCount = ( { onConfirm, stock, stockInitial = 0 } ) => {
 
   const [count, setCount] = useState(stockInitial);
 
-
   const incrementItem = () => {
     if (stock > count) {
       setCount(count + 1)
@@ -50,10 +49,10 @@ const ItemCount = ( { onConfirm, stock, stockInitial = 0 } ) => {
         draggable: true,
         progress: undefined,
         });
- } else{
-  onConfirm(count)
- }
-}
+    } else{
+    onConfirm(count)
+    }  
+  }
 
   return(
     <>
@@ -65,12 +64,8 @@ const ItemCount = ( { onConfirm, stock, stockInitial = 0 } ) => {
           </div>
         </div>
           <button onClick={addItem} className='btn btn-dark m-1'>AGREGAR AL CARRITO</button>
-
-
     </>
-
   );
-
 };
 
 export default ItemCount;

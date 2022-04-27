@@ -2,14 +2,12 @@ import './checkout.css'
 import { useContext, useState } from 'react';
 import CartContext from '../../context/CartContext';
 import { Link } from 'react-router-dom';
-//import Form from '../Form/Form'
 import { firestoreDb } from '../../services/firebase';
 import { collection, documentId, getDocs, query, where, addDoc, writeBatch } from 'firebase/firestore';
 import CartItem from '../CartItem/CartItem';
 import BuyerForm from '../FormBuyer/FormBuyer';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 
 const Checkout = () => {
   const [loading, setLoading] = useState(false)
@@ -115,17 +113,12 @@ const Checkout = () => {
                 <h4 className='col-4'>TOTAL EN PEDIDO: ${getTotal(cart)} </h4>         
             </div>
           </div>
-
- 
-
         </form>
 
         <div className='d-grid gap-2 col-8 mx-auto mt-2'>
             <button type='submit button' onClick={() => createOrder()} className="btn btn-dark">GENERAR PEDIDO</button>
             <Link className='btn btn-dark mt-2' to={`/`}>CONTINUAR COMPRANDO</Link>
           </div> 
-
-          
       </div>   
     </>
   )

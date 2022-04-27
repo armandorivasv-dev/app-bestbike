@@ -8,6 +8,7 @@ const CartItem = ( { id, name, quantity, price }) => {
   const handleRemoveItem = (id) => {
     removeItem(id)
   }
+  
   return(
     <div className='container' key={id}>
       <div className='row' >

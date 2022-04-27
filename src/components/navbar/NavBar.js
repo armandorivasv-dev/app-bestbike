@@ -7,25 +7,22 @@ import { useState, useEffect } from 'react';
 import { getDocs, collection  } from 'firebase/firestore';
 import { firestoreDb } from '../../services/firebase';
 
- 
 const NavBar = () => {
   const [categories, setCategories] = useState([])
 
-useEffect(() => {
+  useEffect(() => {
 
-  getDocs(collection(firestoreDb, 'categories')).then (response => {
-    const categories = response.docs.map(doc => {
-    return { id: doc.id, ...doc.data() }    
-  })
-  setCategories(categories)
-  })
+    getDocs(collection(firestoreDb, 'categories')).then (response => {
+      const categories = response.docs.map(doc => {
+      return { id: doc.id, ...doc.data() }    
+    })
+    setCategories(categories)
+    })
 
-}, [])
-
+  }, [])
 
   return(
   <div>
-
   
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-100 fixed-top'>
       <div className="container">
@@ -48,7 +45,7 @@ useEffect(() => {
         <CartWidget />
     </div>
     </nav> 
-    
+
   </div>
 
   )

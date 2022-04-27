@@ -6,7 +6,7 @@ const CartContext = createContext() //2. creo el contexto sin valor por defecto
 
 export const CartContextProvider = ({ children }) => { //3. crear una funcion que contenga el provider de CartContext, deben recibirce los componentes en children
     
-    const [ cart, setCart ] = useState([]) //4. se crea un estado para agregar productos al carrito
+  const [ cart, setCart ] = useState([]) //4. se crea un estado para agregar productos al carrito
 
   const addItem = (productsToAdd) => {
     const repeatItem = cart.find(item => item.id === productsToAdd.id)
