@@ -3,12 +3,12 @@ import { getFirestore } from 'firebase/firestore';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC5d-UuSRRTfk6K4xvZMf3_--Az1a78hrI",
-  authDomain: "bestbikes-app.firebaseapp.com",
-  projectId: "bestbikes-app",
-  storageBucket: "bestbikes-app.appspot.com",
-  messagingSenderId: "1026649547912",
-  appId: "1:1026649547912:web:2543498e2484256ecc2b3d"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId
 };
 
 // Initialize Firebase

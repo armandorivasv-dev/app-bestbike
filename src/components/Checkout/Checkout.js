@@ -80,7 +80,7 @@ const Checkout = () => {
       <div className='container'>  
         
         <div className='container'>  
-          <h4 className='col mt-2'>DATOS DEL COMPRADOR:</h4>
+          <h4 className='col mt-4'>DATOS DEL COMPRADOR:</h4>
         </div>
 
         <form onSubmit={createOrder}>
@@ -99,9 +99,9 @@ const Checkout = () => {
           </div>
 
           <div className='container'>  
-            <h4 className='col'>PRODUCTOS SELECCIONADOS:</h4>
+            <h4 className='col mt-4'>PRODUCTOS SELECCIONADOS:</h4>
             { cart.map(prod => <CartItem key={prod.id} {...prod}/>)}
-            <div className='row justify-content-end mt-2'>
+            <div className='row justify-content-end mt-4'>
                 <h4 className='col-4'>TOTAL EN PEDIDO: ${getTotal(cart)} </h4>         
             </div>
           </div>

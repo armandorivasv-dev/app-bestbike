@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import './ItemListContainer.css';
 import ItemList from '../ItemList/ItemList';
-import { getDocs, collection, query, where } from 'firebase/firestore';
-import { firestoreDb } from '../../services/firebase';
 import { useParams } from 'react-router-dom';
+import { getProducts } from '../../services/firebase/firestore';
 
 const ItemListContainer = (props) => {
   const [products,setProducts] = useState([])
@@ -11,20 +10,29 @@ const ItemListContainer = (props) => {
   const { categoryId } = useParams()
 
   useEffect(() => {
-    
-    const categoryRef = categoryId
-      ? query(collection(firestoreDb, 'products'), where('cat', '==', categoryId))
-      : collection(firestoreDb, 'products') 
-    
-    
-    getDocs(categoryRef).then(response => {
-      const products = response.docs.map(doc =>{
-        return{ id: doc.id, ...doc.data()}        
+
+    let isActive = true
+        
+    getProducts(categoryId)
+      .then( products => {
+        if (isActive) {
+          setProducts(products)
+        }
+        
+      }).catch(error => {
+        console.log(error)
+      }).finally(() => {
+        if (isActive) {
+          console.log('finalizada la carga de productos')
+        }
       })
-      setProducts(products)
-    })
+
+      return () => {
+        isActive = false
+      }
+
     
-}, [categoryId])
+  }, [categoryId])
 
   return(
     <div className='container'>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const ItemCount = ( { onConfirm, stock, stockInitial = 0 } ) => {
+const ItemCount = ( { onConfirm, stock, stockInitial = 1 } ) => {
 
   const [count, setCount] = useState(stockInitial);
 
