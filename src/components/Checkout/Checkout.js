@@ -10,15 +10,13 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Checkout = () => {
-  const [loading, setLoading] = useState(false)
+  const { cart, getTotal, clearCart } = useContext(CartContext) 
 
   const [ buyer, setBuyer ] = useState({
     name: '',
     email: '',
     phone: ''
   });
-
-  const { cart, getTotal } = useContext(CartContext) 
 
   const createOrder = () => {
     toast.success(`Hola, ${buyer.name} su pedido fue generado`, {
@@ -30,8 +28,6 @@ const Checkout = () => {
       draggable: true,
       progress: undefined,
       });
-
-    setLoading(true)
 
     const objOrder = {
       items: cart,
@@ -53,7 +49,7 @@ const Checkout = () => {
         response.docs.forEach(doc => {
           const orderData= doc.data()
           const prodQuantity = cart.find(prod => prod.id === doc.id)?.quantity
-
+          
           if(orderData.stock >= prodQuantity){
             batchBd.update(doc.ref, {stock: orderData.stock - prodQuantity})
           } else {
@@ -73,12 +69,8 @@ const Checkout = () => {
       }).catch(error => {
         console.log(error)
       }).finally(() => {
-        setLoading(false)
+        clearCart()
       })
-      }
-
-      if(loading) {
-        return <h1>Se esta generando su orden</h1>
       }
 
   return(
