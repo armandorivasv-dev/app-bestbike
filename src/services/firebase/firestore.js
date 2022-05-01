@@ -1,5 +1,5 @@
-import { firestoreDb } from "./index";
-import { getDocs, query, where, collection } from 'firebase/firestore';
+import { firestoreDb } from "./Index";
+import { getDoc, getDocs, query, where, collection, doc } from 'firebase/firestore';
 import { adapterProductsFromFirestore } from '../../adapters/productAdapter';
 
 export const getProducts = (categoryId) => {
@@ -20,4 +20,20 @@ export const getProducts = (categoryId) => {
       })
   })
 }
+
+export const getProduct = (productId) => {
+  return new Promise ((resolve, reject) => {
+    getDoc(doc(firestoreDb, 'products', productId))
+      .then(response =>{
+        const product = { id: response.id, ...response.data()}
+        resolve(product)
+    })
+      .catch(error => {
+        reject(error)
+      })
+
+  })
+}
+
+
 

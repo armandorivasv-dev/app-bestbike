@@ -1,11 +1,11 @@
 import logo from '../../../src/img/logo-bestbike.png';
 import './NavBar.css';
-import '../cartwidget/CartWidget';
-import CartWidget from '../cartwidget/CartWidget';
+import '../CartWidget/CartWidget';
+import CartWidget from '../CartWidget/CartWidget';
 import { Link, NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react'; 
 import { getDocs, collection  } from 'firebase/firestore';
-import { firestoreDb } from '../../services/firebase';
+import { firestoreDb } from '../../services/firebase/Index';
 
 const NavBar = () => {
   const [categories, setCategories] = useState([])

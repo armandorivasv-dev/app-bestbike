@@ -2,7 +2,7 @@ import './checkout.css'
 import { useContext, useState } from 'react';
 import CartContext from '../../context/CartContext';
 import { Link } from 'react-router-dom';
-import { firestoreDb } from '../../services/firebase';
+import { firestoreDb } from '../../services/firebase/Index';
 import { collection, documentId, getDocs, query, where, addDoc, writeBatch } from 'firebase/firestore';
 import CartItem from '../CartItem/CartItem';
 import BuyerForm from '../FormBuyer/FormBuyer';
@@ -19,15 +19,6 @@ const Checkout = () => {
   });
 
   const createOrder = () => {
-    toast.success(`Hola, ${buyer.name} su pedido fue generado`, {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      });
 
     const objOrder = {
       items: cart,
@@ -65,7 +56,15 @@ const Checkout = () => {
         }
       }).then(({ id }) => {
         batchBd.commit()
-        console.log(`Comprador: ${buyer.name}  \n Numero de pedido: ${id}`)
+        toast.success(`Hola, ${buyer.name}\n su Pedido Nro.: ${id} fue generado con Exito!!!`, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
       }).catch(error => {
         console.log(error)
       }).finally(() => {

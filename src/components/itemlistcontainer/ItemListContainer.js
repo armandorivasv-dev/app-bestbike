@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './ItemListContainer.css';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
-import { getProducts } from '../../services/firebase/firestore';
+import { getProducts } from '../../services/firebase/Firestore';
 
 const ItemListContainer = (props) => {
   const [products,setProducts] = useState([])
@@ -12,7 +12,7 @@ const ItemListContainer = (props) => {
   useEffect(() => {
 
     let isActive = true
-        
+
     getProducts(categoryId)
       .then( products => {
         if (isActive) {
