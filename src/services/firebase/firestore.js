@@ -2,6 +2,7 @@ import { firestoreDb } from "./Index";
 import { getDoc, getDocs, query, where, collection, doc } from 'firebase/firestore';
 import { adapterProductsFromFirestore } from '../../adapters/productAdapter';
 
+
 export const getProducts = (categoryId) => {
   return new Promise ((resolve, reject) => {
     const categoryRef = categoryId
@@ -31,9 +32,25 @@ export const getProduct = (productId) => {
       .catch(error => {
         reject(error)
       })
-
   })
 }
+
+export const getCategories = () => {
+  return new Promise ((resolve, reject) => {
+    getDocs(collection(firestoreDb, 'categories'))
+    .then(response => {
+      const categories = response.docs.map(doc => {
+        return { id: response.id, ...response.data() }   
+      })
+      resolve(categories) 
+    }).catch(error => {
+      reject(error)
+    })
+  })
+}
+
+
+
 
 
 

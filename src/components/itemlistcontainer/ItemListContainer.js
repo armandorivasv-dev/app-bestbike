@@ -18,7 +18,6 @@ const ItemListContainer = (props) => {
         if (isActive) {
           setProducts(products)
         }
-        
       }).catch(error => {
         console.log(error)
       }).finally(() => {
@@ -26,12 +25,9 @@ const ItemListContainer = (props) => {
           console.log('finalizada la carga de productos')
         }
       })
-
       return () => {
         isActive = false
-      }
-
-    
+      }    
   }, [categoryId])
 
   return(

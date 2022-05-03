@@ -1,21 +1,26 @@
-import { createContext, useState } from "react"; //1. importo createContext
+import { createContext, useState } from "react"; 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const CartContext = createContext() //2. creo el contexto sin valor por defecto
+const CartContext = createContext() 
 
-export const CartContextProvider = ({ children }) => { //3. crear una funcion que contenga el provider de CartContext, deben recibirce los componentes en children
+export const CartContextProvider = ({ children }) => { 
     
-  const [ cart, setCart ] = useState([]) //4. se crea un estado para agregar productos al carrito
+  const [ cart, setCart ] = useState([]) 
 
   const addItem = (productsToAdd) => {
-    const repeatItem = cart.find(item => item.id === productsToAdd.id)
-    if(!repeatItem){
+
+    if(!isInCart(productsToAdd)){
       setCart([...cart, productsToAdd]) 
     } else {
-      const newCart = cart.filter(item => item.id !== repeatItem.id)
-      repeatItem.quantity = productsToAdd.quantity
-      setCart([...newCart, repeatItem])
+      const newProducts = cart.map(prod => {
+        if(prod.id === productsToAdd.id) {
+          const newProduct = { ...prod, quantity: productsToAdd.quantity }
+          return newProduct
+        }else
+          return prod
+      })
+      setCart(newProducts)
     }
   }
 
@@ -27,7 +32,7 @@ export const CartContextProvider = ({ children }) => { //3. crear una funcion qu
     return countQuantity
   }
 
-const getTotal = () => {
+const getTotalPrice = () => {
   let countTotal = 0
   cart.forEach(prod => {
     countTotal += prod.quantity*prod.price
@@ -77,7 +82,7 @@ const getTotal = () => {
       isInCart,
       clearCart,
       removeItem,
-      getTotal
+      getTotalPrice
     }}> 
       { children } 
     </CartContext.Provider>

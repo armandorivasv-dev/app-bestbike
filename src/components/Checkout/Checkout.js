@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Checkout = () => {
-  const { cart, getTotal, clearCart } = useContext(CartContext) 
+  const { cart, getTotalPrice, clearCart } = useContext(CartContext) 
 
   const [ buyer, setBuyer ] = useState({
     name: '',
@@ -23,7 +23,7 @@ const Checkout = () => {
     const objOrder = {
       items: cart,
       buyer: { buyer },
-      total: getTotal(),
+      total: getTotalPrice(),
       date: new Date()
     }
 
@@ -101,7 +101,7 @@ const Checkout = () => {
             <h4 className='col mt-4'>PRODUCTOS SELECCIONADOS:</h4>
             { cart.map(prod => <CartItem key={prod.id} {...prod}/>)}
             <div className='row justify-content-end mt-4'>
-                <h4 className='col-4'>TOTAL EN PEDIDO: ${getTotal(cart)} </h4>         
+                <h4 className='col-4'>TOTAL EN PEDIDO: ${getTotalPrice(cart)} </h4>         
             </div>
           </div>
         </form>

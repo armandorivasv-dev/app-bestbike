@@ -4,26 +4,23 @@ import '../CartWidget/CartWidget';
 import CartWidget from '../CartWidget/CartWidget';
 import { Link, NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react'; 
-import { getDocs, collection  } from 'firebase/firestore';
-import { firestoreDb } from '../../services/firebase/Index';
+import { getCategories } from '../../services/firebase/Firestore';
 
 const NavBar = () => {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
-
-    getDocs(collection(firestoreDb, 'categories')).then (response => {
-      const categories = response.docs.map(doc => {
-      return { id: doc.id, ...doc.data() }    
-    })
-    setCategories(categories)
-    })
-
+    getCategories()
+      .then(categories => {
+        setCategories(categories)
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }, [])
 
   return(
-  <div>
-  
+  <div>  
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-100 fixed-top'>
       <div className="container">
         <div>

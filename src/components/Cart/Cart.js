@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import CartItem from '../CartItem/CartItem';
 
 const Cart = () => {
-  const { cart, clearCart, getTotal } = useContext(CartContext)  
+  const { cart, clearCart, getTotalPrice } = useContext(CartContext)  
 
   if (cart.length=== 0){
     return(
@@ -31,7 +31,7 @@ const Cart = () => {
 
         <div className='container'>
           <div className='row justify-content-end mt-2'>
-            <h4 className='col-4'>TOTAL CARRITO: ${getTotal(cart)} </h4>         
+            <h4 className='col-4'>TOTAL CARRITO: ${getTotalPrice(cart)} </h4>         
           </div>
           
           <div className='d-grid gap-2 col-8 mx-auto mt-4'>
