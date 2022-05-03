@@ -29,8 +29,7 @@ Los data es guardada en tres colecciones:
 5. Al presionar "CONFIRMAR PEDIDO" muestra la seccion de CONFIRMAR PEDIDO, donde se solicitan los datos del  comprador y al presionar "GENERAR PEDIDO" se genera el mismo con los datos del comprador y productos que contiene, es mostrada una notificacion.
 ## _Como es la navegación dentro de la app_
 Categorias -> Ficha del producto -> Carrito de Compras -> Confirmar Pedido
-## _Que componentes tiene y que hace cada componente, que funcion tiene_ 
-
+## _Componentes que contiene la App, que hacen y que funcion tiene_ 
 Adapters:
 - productoAdapter: transforma los campos de los datos en nombres legibles para usar en la app.
 
